@@ -1,9 +1,13 @@
 package com.salarycalculator.Salary.Calculator.Backend.DAL.interfaces;
 
-import org.hibernate.mapping.Collection;
+import com.salarycalculator.Salary.Calculator.Backend.DAL.entities.FixedData;
 
-public interface IData {
+public interface IData <T> {
 
-    Collection getAllDataEntries();
+    public T getAllDataEntries();
+    public T getDataById(int id);
+    public void removeDataById(int id);
+    public void updateDataById(FixedData FixedData);
+    public void insertDataToDb(FixedData FixedData);
 
 }
