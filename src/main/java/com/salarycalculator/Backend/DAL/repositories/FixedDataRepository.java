@@ -44,16 +44,16 @@ public class FixedDataRepository implements IData {
     }
 
     @Override
-    public void updateDataById(FixedData FixedData) {
-        FixedData fd = fixedDataDB.get(FixedData.getId());
+    public void updateDataById(FixedData fixedData) {
+        FixedData fd = fixedDataDB.get(fixedData.getId());
 
-        fd.setCountryCode(FixedData.getCountryCode());
-        fd.setTaxPercentage(FixedData.getTaxPercentage());
-        fd.setTaxFactor(FixedData.getTaxFactor());
-        fd.setFixedCosts(FixedData.getFixedCosts());
-        fd.setCurrencyCode(FixedData.getCurrencyCode());
+        fd.setCountryCode(fixedData.getCountryCode());
+        fd.setTaxPercentage(fixedData.getTaxPercentage());
+        fd.setTaxFactor(fixedData.getTaxFactor());
+        fd.setFixedCosts(fixedData.getFixedCosts());
+        fd.setCurrencyCode(fixedData.getCurrencyCode());
 
-        this.fixedDataDB.put(FixedData.getId(), FixedData);
+        this.fixedDataDB.put(fixedData.getId(), fixedData);
     }
 
     @Override
