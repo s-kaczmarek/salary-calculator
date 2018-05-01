@@ -22,9 +22,9 @@ public class CalculatorServiceTest {
     private CurrencyRateService currencyRateService;
 
     @Test
-    public void shouldGetSalaryInPLN(){
-        Mockito.when(currencyRateService.getCurruncyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
-        BigDecimal salaryForGermany = calculatorService.calculateSalaryInPLN("DE", new BigDecimal(1000.00));
-        Assertions.assertThat(salaryForGermany).isEqualTo("67840.00");
-
+    public void shouldGetSalaryInPLN() {
+        Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
+        BigDecimal salaryForGermany = calculatorService.calculateSalaryInPLN("DE", new BigDecimal(100.00));
+        Assertions.assertThat(salaryForGermany).isEqualTo("4480.00");
+    }
 }
