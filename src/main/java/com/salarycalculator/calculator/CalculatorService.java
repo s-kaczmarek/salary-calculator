@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 @Service
-public class CalculatorService {
+public class  CalculatorService {
 
     private static final int DAYS_OF_MONTH = 22;
     private DataRepository dataRepository;

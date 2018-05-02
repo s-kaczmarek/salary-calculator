@@ -9,6 +9,10 @@ public class CalculatorController {
 
     private CalculatorService calculatorService;
 
+    public CalculatorController(CalculatorService calculatorService){
+        this.calculatorService = calculatorService;
+    }
+
     @RequestMapping(path = "/calculateNettSalaryInPLN/{countryCode}/{nettSalary}", method = RequestMethod.GET)
     public BigDecimal calculateNettSalaryInPLN(@PathVariable String countryCode, @PathVariable BigDecimal nettSalary){
         if (nettSalary.compareTo(BigDecimal.ZERO) > 0)
@@ -17,7 +21,4 @@ public class CalculatorController {
             return BigDecimal.ZERO;
     }
 
-    public CalculatorController(CalculatorService calculatorService){
-        this.calculatorService = calculatorService;
-    }
 }

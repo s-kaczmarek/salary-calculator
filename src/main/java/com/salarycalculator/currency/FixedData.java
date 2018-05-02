@@ -1,4 +1,4 @@
-package com.salarycalculator.calculator;
+package com.salarycalculator.currency;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

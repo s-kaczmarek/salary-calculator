@@ -1,5 +1,6 @@
 package com.salarycalculator.currency;
 
+import com.salarycalculator.currency.FixedData;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
