@@ -22,9 +22,37 @@ public class CalculatorServiceTest {
     private CurrencyRateService currencyRateService;
 
     @Test
-    public void shouldGetSalaryInPLN() {
+    public void shouldGetRightValueForUK() {
         Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
-        BigDecimal salaryForGermany = calculatorService.calculateSalaryInPLN("DE", new BigDecimal(100.00));
-        Assertions.assertThat(salaryForGermany).isEqualTo("4480.00");
+        BigDecimal salaryForUK = calculatorService.calculateSalaryInPLN("UK", new BigDecimal(100.00));
+        Assertions.assertThat(salaryForUK).isEqualTo("4200.00");
+    }
+
+    @Test
+    public void shouldGetRightValueForDE() {
+        Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
+        BigDecimal salaryForUK = calculatorService.calculateSalaryInPLN("DE", new BigDecimal(100.00));
+        Assertions.assertThat(salaryForUK).isEqualTo("3840.00");
+    }
+
+    @Test
+    public void shouldGetRightValueForPL() {
+        Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("1"));
+        BigDecimal salaryForUK = calculatorService.calculateSalaryInPLN("PL", new BigDecimal(100.00));
+        Assertions.assertThat(salaryForUK).isEqualTo("582.00");
+    }
+
+    @Test
+    public void shouldGetZeroIfZeroPassedAsArgument() {
+        Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
+        BigDecimal salaryForUK = calculatorService.calculateSalaryInPLN("UK", new BigDecimal(0.00));
+        Assertions.assertThat(salaryForUK).isEqualTo("0");
+    }
+
+    @Test
+    public void shouldGetZeroIfNegativeValuePassedAsArgument() {
+        Mockito.when(currencyRateService.getCurrencyRate(Mockito.any())).thenReturn(new BigDecimal("4"));
+        BigDecimal salaryForUK = calculatorService.calculateSalaryInPLN("UK", new BigDecimal(-100.30));
+        Assertions.assertThat(salaryForUK).isEqualTo("0.00");
     }
 }
