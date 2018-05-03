@@ -14,7 +14,11 @@ public class CurrencyRateService {
     private RestTemplate restTemplate = new RestTemplate();
 
     public BigDecimal getCurrencyRate(String currencyCode){
-        CurrencyRates cr = restTemplate.getForObject(CURRENCY_RATE_REMOTE_URL, CurrencyRates.class, currencyCode);
-        return cr.getRates().get(0).getMid();
+        if(currencyCode.equals("PLN")){
+            return BigDecimal.valueOf(1);
+        }else{
+            CurrencyRates cr = restTemplate.getForObject(CURRENCY_RATE_REMOTE_URL, CurrencyRates.class, currencyCode);
+            return cr.getRates().get(0).getMid();
+        }
     }
 }
