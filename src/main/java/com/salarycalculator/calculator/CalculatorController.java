@@ -15,10 +15,7 @@ public class CalculatorController {
 
     @RequestMapping(path = "/calculateNettSalaryInPLN/{countryCode}/{nettSalary}", method = RequestMethod.GET)
     public BigDecimal calculateNettSalaryInPLN(@PathVariable String countryCode, @PathVariable BigDecimal nettSalary){
-        if (nettSalary.compareTo(BigDecimal.ZERO) > 0)
             return calculatorService.calculateSalaryInPLN(countryCode, nettSalary);
-        else
-            return BigDecimal.ZERO;
     }
 
 }
