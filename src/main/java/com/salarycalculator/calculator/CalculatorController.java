@@ -13,9 +13,8 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
-    @RequestMapping(path = "/calculateNettSalaryInPLN/{countryCode}/{nettSalary}", method = RequestMethod.GET)
+    @RequestMapping(path = "/api/calculateNettSalaryInPLN/{countryCode}/{nettSalary}", method = RequestMethod.GET)
     public BigDecimal calculateNettSalaryInPLN(@PathVariable String countryCode, @PathVariable BigDecimal nettSalary){
             return calculatorService.calculateSalaryInPLN(countryCode, nettSalary);
     }
-
 }
